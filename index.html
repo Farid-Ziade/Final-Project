@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1 class="title">Task Manager</h1>
+      <button>dark mode</button>
+    </header>
+    <nav>
+      <div class="nav-card">
+        <p id="total-task">0</p>
+        <h4>Total Task</h4>
+      </div>
+      <div class="nav-card">
+        <p id="remaining-task">0</p>
+        <h4>Remaining Task</h4>
+      </div>
+      <div class="nav-card">
+        <p id="completed-task">0</p>
+        <h4>Completed Task</h4>
+      </div>
+    </nav>
+    <main>
+      <section>
+        <h2>Add Task</h2>
+        <form>
+          <label for="task-title">Task title</label>
+          <input type="text" id="task-title" />
+          <label for="task-decription">Task description</label>
+          <input type="text" id="task-description" />
+          <button type="submit">Add Task</button>
+        </form>
+      </section>
+      <section id="task-list"></section>
+    </main>
+    <footer><p>&copy; All rights reserved - Farid</p></footer>
+  </body>
+</html>
