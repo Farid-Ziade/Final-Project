@@ -14,37 +14,46 @@
     />
   </head>
   <body>
-    <header>
-      <h1 class="title">Task Manager</h1>
-      <button>dark mode</button>
-    </header>
-    <nav>
-      <div class="nav-card">
-        <p id="total-task">0</p>
-        <h4>Total Task</h4>
-      </div>
-      <div class="nav-card">
-        <p id="remaining-task">0</p>
-        <h4>Remaining Task</h4>
-      </div>
-      <div class="nav-card">
-        <p id="completed-task">0</p>
-        <h4>Completed Task</h4>
-      </div>
-    </nav>
-    <main>
-      <section>
-        <h2>Add Task</h2>
-        <form>
-          <label for="task-title">Task title</label>
-          <input type="text" id="task-title" />
-          <label for="task-decription">Task description</label>
-          <input type="text" id="task-description" />
-          <button type="submit">Add Task</button>
-        </form>
-      </section>
-      <section id="task-list"></section>
+    <main class="page-container">
+      <header>
+        <h1 class="title">Task Manager</h1>
+        <button>dark mode</button>
+      </header>
+      <main>
+        <section class="task-container">
+          <div class="task-card">
+            <span class="number" id="total-task">0</span>
+            <h4 class="task-name">Total Task</h4>
+          </div>
+          <div class="task-card">
+            <span class="number green" id="remaining-task">0</span>
+            <h4 class="task-name">Remaining Task</h4>
+          </div>
+          <div class="task-card">
+            <span class="number red" id="completed-task">0</span>
+            <h4 class="task-name">Completed Task</h4>
+          </div>
+        </section>
+        <section>
+          <h2>+ Add New Task</h2>
+          <form>
+            <input
+              type="text"
+              id="task-title"
+              placeholder="Task Title"
+              required
+            />
+            <input
+              type="text"
+              id="task-description"
+              placeholder="Task Description"
+            />
+            <button type="submit">+ Add Task</button>
+          </form>
+        </section>
+        <section id="task-list"></section>
+      </main>
+      <footer><p>&copy; All rights reserved - Farid</p></footer>
     </main>
-    <footer><p>&copy; All rights reserved - Farid</p></footer>
   </body>
 </html>
