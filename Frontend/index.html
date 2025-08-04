@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Manager</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="script.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,37 +22,43 @@
         <section class="task-container">
           <div class="task-card">
             <span class="number" id="total-task">0</span>
-            <h4 class="task-name">Total Task</h4>
+            <h4 class="task-name">Total Tasks</h4>
           </div>
           <div class="task-card">
             <span class="number green" id="remaining-task">0</span>
-            <h4 class="task-name">Remaining Task</h4>
+            <h4 class="task-name">Completed Task</h4>
           </div>
           <div class="task-card">
             <span class="number red" id="completed-task">0</span>
-            <h4 class="task-name">Completed Task</h4>
+            <h4 class="task-name">Remaining Task</h4>
           </div>
         </section>
-        <section>
-          <h2>+ Add New Task</h2>
-          <form>
+        <section class="add-task">
+          <div class="add-container">
+            <img class="plus-svg" src="./images/plus.svg" alt="plus sign" />
+            <h2>Add New Task</h2>
+          </div>
+          <form id="task-form">
             <input
               type="text"
+              class="task-input"
               id="task-title"
               placeholder="Task Title"
               required
             />
             <input
               type="text"
+              class="task-input"
               id="task-description"
-              placeholder="Task Description"
+              placeholder="Task Description (optional)"
             />
-            <button type="submit">+ Add Task</button>
+            <button class="add-btn" type="submit">Add Task</button>
           </form>
         </section>
         <section id="task-list"></section>
       </main>
       <footer><p>&copy; All rights reserved - Farid</p></footer>
     </main>
+    <script src="script.js"></script>
   </body>
 </html>
