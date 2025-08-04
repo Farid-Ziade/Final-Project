@@ -2,6 +2,7 @@
 contrast checker: https://coolors.co/contrast-checker/000000-eaf0f6
 background color: #f8fafc, #f1f5f9;
 color:#1e293b,#22c55e,#f93c16;
+imagees:: svg-repo
 */
 * {
   margin: 0;
@@ -24,7 +25,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1em;
+  margin: 1.5em;
 }
 .title {
   font-size: 2.5em;
@@ -33,17 +34,18 @@ header {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 1em;
+  margin: 1.5em;
 }
 .task-card {
   background-color: white;
   flex-grow: 0.3;
-  padding: 1.5em;
+  padding: 2.5em;
   border-radius: 0.5rem;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
+
 .number {
-  font-size: 1.7em;
+  font-size: 1.5em;
   font-weight: bold;
 }
 .green {
@@ -53,10 +55,43 @@ header {
   color: #f93c16;
 }
 .task-name {
-  font-size: 1em;
+  font-size: 1.2em;
+  color: #556172;
 }
-section {
-  margin: 1em;
+.add-task {
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1.5em;
+  margin: 1.5em;
+}
+.add-container {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+  margin-bottom: 1em;
+}
+.add-container h2 {
+  font-size: 1.5em;
+}
+.task-input {
+  width: 100%;
+  font-size: 0.9em;
+  padding: 0.3em;
+  border-radius: 0.5rem;
+  margin-bottom: 1em;
+}
+.plus-svg {
+  width: 1.5em;
+}
+.add-btn {
+  background-color: #1e293b;
+  color: white;
+  cursor: pointer;
+  border-radius: 0.5em;
+  padding: 0.3em;
+}
+.add-btn:hover {
+  color: gold;
 }
 footer {
   margin: 1em;
