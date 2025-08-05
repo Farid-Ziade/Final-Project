@@ -39,18 +39,22 @@
             <h2>Add New Task</h2>
           </div>
           <form id="task-form">
-            <input
-              type="text"
-              class="task-input"
-              id="task-title"
-              placeholder="Task Title"
-              required
-            />
+            <div class="form-container">
+              <input
+                type="text"
+                class="task-input"
+                id="task-title"
+                placeholder="Task Title"
+                maxlength="50"
+                required
+              />
+            </div>
             <input
               type="text"
               class="task-input"
               id="task-description"
               placeholder="Task Description (optional)"
+              maxlength="200"
             />
             <button class="add-btn" type="submit">Add Task</button>
           </form>
