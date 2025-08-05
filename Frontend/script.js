@@ -1,4 +1,9 @@
 "use strict";
+const colorModeToggle = document.getElementById("color_mode");
+
+colorModeToggle.addEventListener("change", () => {
+  document.body.classList.toggle("dark-mode", colorModeToggle.checked);
+});
 
 //get form
 const form = document.getElementById("task-form");
@@ -23,11 +28,11 @@ form.addEventListener("submit", (e) => {
   let title = document.getElementById("task-title").value.trim();
   let description = document.getElementById("task-description").value.trim();
 
-  const card = document.createElement("div");
+  let card = document.createElement("div");
   card.classList.add("added-task");
   card.id = "tasks";
 
-  const titleContainer = document.createElement("div");
+  let titleContainer = document.createElement("div");
 
   let h2 = document.createElement("h2");
   h2.classList.add("added-task-title");
@@ -35,6 +40,17 @@ form.addEventListener("submit", (e) => {
 
   let buttonContainer = document.createElement("div");
   buttonContainer.classList.add("buttonContainer");
+
+  let p = document.createElement("p");
+  p.classList.add("added-task-description");
+  p.textContent = description;
+
+  total = total + 1;
+  remaining = remaining + 1;
+  totalTask.textContent = total;
+  remainingTask.textContent = remaining;
+
+  ////////////////////////////////edit section////////////////////////////////
 
   let edit = document.createElement("img");
   edit.src = "./images/pen.svg";
@@ -52,17 +68,31 @@ form.addEventListener("submit", (e) => {
     titleContainer.replaceChild(input, h2);
 
     input.focus();
+    let saved = false;
+
+    let replace = () => {
+      if (saved) return;
+      saved = true;
+      h2.textContent = input.value.trim();
+      titleContainer.replaceChild(h2, input);
+
+      if (p) {
+        p.click();
+      }
+    };
 
     input.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
-        titleContainer.replaceChild(input, h2);
+        replace();
       }
     });
-    input.addEventListener("blur", () => {
-      titleContainer.replaceChild(input, h2);
-    });
+    input.addEventListener("blur", replace);
   });
 
+  buttonContainer.appendChild(edit);
+  ////////////////////////////////////////////////////////////////////////////////
+
+  ////////////////////////////////Checked button//////////////////////////////////
   let check = document.createElement("div");
   check.classList.add("checkbox-con");
   let checked = document.createElement("input");
@@ -86,15 +116,15 @@ form.addEventListener("submit", (e) => {
     completedTask.textContent = completed;
   });
 
+  buttonContainer.appendChild(check);
+  ///////////////////////////////////////////////////////////////////////////////
+
+  ////////////////////////////////clear section////////////////////////////////
   let clear = document.createElement("img");
   clear.src = "./images/clear.svg";
   clear.classList.add("svg");
   clear.classList.add("clear");
-
-  buttonContainer.appendChild(edit);
-  buttonContainer.appendChild(check);
   buttonContainer.appendChild(clear);
-
   clear.addEventListener("click", () => {
     if (completed > 0 && checked.checked) {
       completed = completed - 1;
@@ -110,23 +140,48 @@ form.addEventListener("submit", (e) => {
     completedTask.textContent = completed;
     card.remove();
   });
+  ///////////////////////////////////////////////////////////////////////////////
+
+  ////////////////////////////////paragraph editing//////////////////////////////
+  let savedDesc = false;
+
+  p.addEventListener("click", () => {
+    if (savedDesc) return;
+
+    let inputDesc = document.createElement("input");
+    inputDesc.value = p.textContent;
+    inputDesc.classList.add("task-input");
+    inputDesc.rows = 3;
+    inputDesc.maxLength = 200;
+
+    card.replaceChild(inputDesc, p);
+    inputDesc.focus();
+
+    let saveDescription = () => {
+      if (savedDesc) return;
+      savedDesc = true;
+
+      p.textContent = inputDesc.value.trim() || "No description";
+      card.replaceChild(p, inputDesc);
+      savedDesc = false;
+    };
+
+    inputDesc.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        saveDescription();
+      }
+    });
+
+    inputDesc.addEventListener("blur", saveDescription);
+  });
+
+  ///////////////////////////////////////////////////////////////////////////////
 
   titleContainer.appendChild(h2);
   titleContainer.appendChild(buttonContainer);
   titleContainer.classList.add("added-task-title-container");
-
-  let p = document.createElement("p");
-  p.classList.add("added-task-description");
-  p.textContent = description;
-
   card.appendChild(titleContainer);
   card.appendChild(p);
   taskList.appendChild(card);
-
-  total = total + 1;
-  remaining = remaining + 1;
-  totalTask.textContent = total;
-  remainingTask.textContent = remaining;
-
   form.reset();
 });
