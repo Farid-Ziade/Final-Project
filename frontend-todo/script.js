@@ -151,7 +151,6 @@ form.addEventListener("submit", (e) => {
     let inputDesc = document.createElement("input");
     inputDesc.value = p.textContent;
     inputDesc.classList.add("task-input");
-    inputDesc.rows = 3;
     inputDesc.maxLength = 200;
 
     card.replaceChild(inputDesc, p);
@@ -161,7 +160,7 @@ form.addEventListener("submit", (e) => {
       if (savedDesc) return;
       savedDesc = true;
 
-      p.textContent = inputDesc.value.trim() || "No description";
+      p.textContent = inputDesc.value.trim();
       card.replaceChild(p, inputDesc);
       savedDesc = false;
     };

@@ -252,7 +252,6 @@ label {
   overflow: hidden;
   position: relative;
   transition: all 0.3s ease;
-  /*box-shadow: 0px 0px 8px 0px rgba(17, 17, 17, 0.34) inset;*/
   display: block;
 }
 
@@ -366,7 +365,15 @@ body.dark-mode .task-input {
   color: #f1f5f9;
 }
 
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+}
 @media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
   .task-container {
     flex-direction: column;
     align-items: stretch;
@@ -392,17 +399,5 @@ body.dark-mode .task-input {
 @media (max-width: 1024px) {
   html {
     font-size: 15px;
-  }
-}
-
-@media (max-width: 768px) {
-  html {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  html {
-    font-size: 13px;
   }
 }
